@@ -228,4 +228,5 @@ class Anthropic(LLM):
     def valid_models(self) -> list[str]:
         return [
             "claude-2.1",
+            "claude-2.0",
         ]
