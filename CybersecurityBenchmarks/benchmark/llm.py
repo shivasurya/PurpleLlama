@@ -12,7 +12,7 @@ from abc import ABC, abstractmethod
 
 import openai
 from langchain.llms import Together
-from anthropic import Anthropic, HUMAN_PROMPT, AI_PROMPT
+from anthropic import Anthropic, HUMAN_PROMPT
 
 from typing_extensions import override
 
@@ -218,7 +218,7 @@ class Anthropic(LLM):
         logging.getLogger().setLevel(logging.INFO)
         response = self.client.completions.create(
             model=self.model,
-            prompt=f"{HUMAN_PROMPT} {prompt}"
+            prompt=f"{HUMAN_PROMPT} {prompt}",
             max_tokens_to_sample=MAX_TOKENS,
         )
         logging.getLogger().setLevel(level)
